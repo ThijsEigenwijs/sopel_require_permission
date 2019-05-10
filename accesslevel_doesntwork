@@ -1,0 +1,39 @@
+# coding=utf-8
+from __future__ import unicode_literals, absolute_import, print_function, division
+import sopel.module
+from sopel.module import commands
+
+# +a
+@commands('admin')
+@sopel.module.require_privilege(sopel.module.ADMIN, "Your not an admin")
+def admin(bot, trigger):
+    """Report if your an admin"""
+    bot.reply("Youre an admin")
+    
+# +v
+@commands('voice')
+@sopel.module.require_privilege(sopel.module.VOICE, "You\'re not voiced!")
+def voice(bot, trigger):
+    """Report if your are voiced"""
+    bot.reply('You may speak')
+
+# +o
+@commands('op')
+@sopel.module.require_privilege(sopel.module.OP, "Your not an operator")
+def op(bot, trigger):
+    """Report if your an op"""
+    bot.reply('You are an operator')
+    
+# +h
+@commands('halfop')
+@sopel.module.require_privilege(sopel.module.HALFOP, "Your not a halfop")
+def halfop(bot, trigger):
+    """Report if your an halfop"""
+    bot.reply("You have the permission halfop")
+
+# +q
+@commands('owner')
+@sopel.module.require_privilege(sopel.module.OWNER, "Your not the owner")
+def owner(bot, trigger):
+    """Report if your an owner"""
+    bot.reply('your my owner')
